@@ -27,6 +27,13 @@ class ViewController: UIViewController {
     var betTitleLabel : UILabel!
     var winnerPaidTitleLabel : UILabel!
     
+    // buttons in fourth container
+    var resetButton: UIButton!
+    var betOneButton: UIButton!
+    var betMaxButton: UIButton!
+    var spinButton: UIButton!
+    
+    
     
     // CONSTANTS
     // *********
@@ -36,7 +43,8 @@ class ViewController: UIViewController {
     let kNumberOfSlots = 3 //rows
     let kThird: CGFloat = 1.0/3.0
     let kMarginForSlot : CGFloat = 2.0
-    
+    let kHalf: CGFloat = 1.0/2.0
+    let kEight: CGFloat = 1.0/8.0
     
     
     // FUNCTIONS
@@ -55,6 +63,11 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    //IBActions
+    func resetButtonPressed(button:UIButton){
+        println("reset button pressed")
     }
 
     // Custom Functions
@@ -194,8 +207,39 @@ class ViewController: UIViewController {
             x: containerView.frame.width * kSixth * 5,
             y: containerView.frame.height * kThird * 2)
         containerView.addSubview(self.winnerPaidTitleLabel)
+    }
+    
+    
+    func setupFourthContainer(containerView: UIView){
+    
+        self.resetButton = UIButton()
+        self.resetButton.setTitle("Reset", forState: UIControlState.Normal)
+        self.resetButton.setTitleColor(UIColor.blueColor(), forState: UIControlState.Normal)
+        self.resetButton.titleLabel?.font = UIFont(name: "Superclarendon-Bold", size: 12)
+        self.resetButton.backgroundColor = UIColor.lightGrayColor()
+        self.resetButton.sizeToFit()
+        self.resetButton.center = CGPoint(
+            x: containerView.frame.width * kEight,
+            y: containerView.frame.height * kHalf)
+        self.resetButton.addTarget(self, action: "resetButtonPressed:", forControlEvents: UIControlEvents.TouchUpInside)
+        containerView.addSubview(self.resetButton)
+        
+        
         
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
