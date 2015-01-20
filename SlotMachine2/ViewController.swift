@@ -58,6 +58,7 @@ class ViewController: UIViewController {
         self.setupFirstContainer(self.firstContainer)
         self.setupSecondContainer(self.secondContainer)
         self.setupThirdContainer(self.thirdContainer)
+        self.setupFourthContainer(self.fourthContainer)
     }
 
     override func didReceiveMemoryWarning() {
