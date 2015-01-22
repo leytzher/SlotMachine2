@@ -34,6 +34,11 @@ class ViewController: UIViewController {
     var spinButton: UIButton!
     
     var slots:[[Slot]] = []
+	
+	// Stats
+	var credits = 0
+	var currentBet = 0
+	var winnings = 0
     
     
     // CONSTANTS
@@ -57,7 +62,8 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         self.setupContainerViews()
         self.setupFirstContainer(self.firstContainer)
-        self.setupSecondContainer(self.secondContainer)
+        //self.setupSecondContainer(self.secondContainer)
+		self.hardReset()
         self.setupThirdContainer(self.thirdContainer)
         self.setupFourthContainer(self.fourthContainer)
     }
@@ -69,7 +75,7 @@ class ViewController: UIViewController {
     
     //IBActions
     func resetButtonPressed(button: UIButton){
-        println("reset button pressed")
+			self.hardReset()
     }
     
     func betOneButtonPressed(button: UIButton){
@@ -302,6 +308,17 @@ class ViewController: UIViewController {
         containerView.addSubview(self.spinButton)
         
     }
+	
+	
+	func hardReset(){
+		removeSlotImageViews()
+		self.slots.removeAll(keepCapacity: true)
+		self.setupSecondContainer(self.secondContainer)
+		self.credits = 50
+		self.winnings = 0
+		self.currentBet = 0
+		
+	}
     
     
     
